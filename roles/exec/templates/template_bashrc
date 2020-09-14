@@ -1,0 +1,12 @@
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+test -s ~/.alias && . ~/.alias || true
+
+export HOST_IP={{HOST_IP}}
+
+alias grep="grep --color"
+alias ..="cd .."
+alias ...="cd ../../"
+alias l="ls -la"

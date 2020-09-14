@@ -1,0 +1,2 @@
+### crontab ###
+@reboot source ~/.bashrc 1>/dev/null 2>&1

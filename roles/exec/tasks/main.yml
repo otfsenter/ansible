@@ -1,0 +1,27 @@
+- name: install jdk 1.8
+  shell: |
+    linux_lsb=`test -f /etc/centos-release && echo CentOS || echo ubuntu 2>/dev/null`
+    if [ "CentOS" == "$linux_lsb" ]; then
+      sudo yum -y install java-1.8.0-openjdk.x86_64 unzip
+    else
+      sudo apt -y install openjdk-8-jdk unzip
+    fi
+    echo "isntall init software success."
+
+- name: set the remote server .bashrc
+  template: src=template_bashrc dest=~/.bashrc
+
+- shell: hostname
+  register: hostname
+
+- name: create folder /opt/idlepig/apps/bin
+  shell: test -d /opt/idlepig/apps/bin || mkdir -p /opt/idlepig/apps/bin
+
+- name: copy jar file
+  copy: src=pro.jar dest=/opt/idlepig/apps
+
+- name: copy start.sh
+  copy: src=start.sh dest=/opt/idlepig/apps/bin
+
+- name: copy start.sh
+  shell: cd /opt/idlepig/apps/bin; chmod 644 start.sh; sh start.sh

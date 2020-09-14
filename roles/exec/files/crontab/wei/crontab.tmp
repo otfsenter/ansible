@@ -1,0 +1,7 @@
+### crontab ###
+@reboot source ~/.bashrc 1>/dev/null 2>&1
+#*/10 * * * * /usr/bin/python /home/ubuntu/blockip/blockip.py > /var/log/nginx/crontab.log 2>&1 &
+26 21 * * * /bin/sh /home/ubuntu/blockip/ct.sh
+*/1 * * * * /usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &
+0 0 * * * /usr/local/qcloud/YunJing/YDCrontab.sh > /dev/null 2>&1 &
+0 7 * * * /bin/sh /home/ubuntu/build-website.sh > /dev/null 2>&1 &
