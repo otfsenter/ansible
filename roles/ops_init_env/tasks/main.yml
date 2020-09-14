@@ -1,0 +1,8 @@
+- name: create folder /opt/idlepig/ops/bin
+  shell: test -d /opt/idlepig/ops/bin || mkdir -p /opt/idlepig/apps/bin
+
+- name: copy psh file
+  copy: src=psh.sh dest=/opt/idlepig/ops/bin/psh.sh
+
+- name: copy push file
+  copy: src=push.sh dest=/opt/idlepig/ops/bin/push.sh

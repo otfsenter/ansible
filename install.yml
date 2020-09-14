@@ -2,4 +2,5 @@
   gather_facts: no
   strategy: free
   roles:
-    - { role: exec }
+#    - { role: exec }
+    - { role: docker }

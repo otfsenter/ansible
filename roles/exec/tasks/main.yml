@@ -17,7 +17,7 @@
 - name: create folder /opt/idlepig/apps/bin
   shell: test -d /opt/idlepig/apps/bin || mkdir -p /opt/idlepig/apps/bin
 
-- name: copy jar file
+- name: todo, this step has error, copy jar file from remote address
   copy: src=pro.jar dest=/opt/idlepig/apps
 
 - name: copy start.sh

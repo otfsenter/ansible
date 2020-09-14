@@ -1,0 +1,5 @@
+- name: copy /etc/yum.repos.d
+  shell: todo, ls -l
+
+- name: install docker
+  shell: yum -y install docker
