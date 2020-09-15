@@ -1,53 +1,14 @@
-- name: copy /etc/yum.repos.d/CentOS-Base.repo
-  copy: src=CentOS-Base.repo dest=/etc/yum.repos.d/CentOS-Base.repo
 
-- name: copy /etc/yum.repos.d/CentOS-CR.repo
-  copy: src=CentOS-CR.repo dest=/etc/yum.repos.d/CentOS-CR.repo
-
-- name: copy /etc/yum.repos.d/CentOS-Debuginfo.repo
-  copy: src=CentOS-Debuginfo.repo dest=/etc/yum.repos.d/CentOS-Debuginfo.repo
-
-- name: copy /etc/yum.repos.d/CentOS-fasttrack.repo
-  copy: src=CentOS-fasttrack.repo dest=/etc/yum.repos.d/CentOS-fasttrack.repo
-
-- name: copy /etc/yum.repos.d/CentOS-Media.repo
-  copy: src=CentOS-Media.repo dest=/etc/yum.repos.d/CentOS-Media.repo
-
-- name: copy /etc/yum.repos.d/CentOS-Sources.repo
-  copy: src=CentOS-Sources.repo dest=/etc/yum.repos.d/CentOS-Sources.repo
-
-- name: copy /etc/yum.repos.d/CentOS-Vault.repo
-  copy: src=CentOS-Vault.repo dest=/etc/yum.repos.d/CentOS-Vault.repo
-
-- name: copy /etc/yum.repos.d/CentOS-x86_64-kernel.repo
-  copy: src=CentOS-x86_64-kernel.repo dest=/etc/yum.repos.d/CentOS-x86_64-kernel.repo
-
-- name: copy /etc/yum.repos.d/docker-ce.repo
-  copy: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
-
-- name: copy /etc/yum.repos.d/epel.repo
-  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
-
-- name: copy /etc/yum.repos.d/epel.repo.rpmnew
-  copy: src=epel.repo.rpmnew dest=/etc/yum.repos.d/epel.repo.rpmnew
-
-- name: copy /etc/yum.repos.d/epel-testing.repo
-  copy: src=epel-testing.repo dest=/etc/yum.repos.d/epel-testing.repo
-
-- name: copy /etc/yum.repos.d/kubernetes.repo
-  copy: src=kubernetes.repo dest=/etc/yum.repos.d/kubernetes.repo
 
 - name: mkdir daemon.sh directory in remote server
   shell: test -d /tmp/idelpig || mkdir -p /tmp/idlepig/
 
-- name: copy daemon.sh to remote server
-  copy: src=copy_daemon.sh dest=/tmp/idlepig/copy_daemon.sh
+- name: copy install_docker.sh to remote server
+  copy: src=install_docker.sh dest=/tmp/idlepig/install_docker.sh
 
 - name: config docker images address in aliyun
-  shell: sudo sh /tmp/idlepig/copy_daemon.sh
+  shell: sudo sh /tmp/idlepig/install_docker.sh
 
-- name: todo, Could not resolve host mirrors.cloud.aliyuncs.com, install docker
-  shell: yum -y install docker-ce && sudo systemctl restart docker
 
 
 
