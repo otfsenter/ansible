@@ -1,22 +1,22 @@
 #!/usr/bin/sh
 
-# 安装Docker的依赖库
+# install docker libs
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
-# 添加Docker CE的软件源信息。
+# add docker ce software information with aliyun
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-# 安装Docker CE。
+# install docker ce
 yum makecache fast
 yum -y install docker-ce
 
-# 启动Docker服务。
+# start docker
 systemctl start docker
 
-# 设置开机自动启动
+# start docker after reboot
 systemctl enable docker
 
-# 配置阿里云镜像仓库（镜像加速）
+# configure aliyun mirror's repository
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
